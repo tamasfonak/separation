@@ -12,7 +12,7 @@ rssi_average = 1
 rssi_average_list = []
 def rssi_scanner( address ):
     while True:
-        ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
+        ble_list = Scanner().scan( 10.0 ) #10.0 sec scanning 
         for dev in ble_list:
             if dev.addr == address:
                 rssi_average_list.append( dev.rssi )
