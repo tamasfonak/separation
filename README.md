@@ -3,7 +3,7 @@ DWM1000 (decawave)
 
 Raspberry Pi bluetooth proximity project:
 
-Set the config.txt:
+Set in the config.txt:
 ```
 gpu_mem_256
 ```
