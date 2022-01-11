@@ -33,7 +33,7 @@ while True:
             ancious.set_alpha( 0 )
             ancious.set_volume( 0 )
         if rssi_average > -40:
-            ancious.set_alpha( 255 )
-            ancious.set_volume( 1 )
+            ancious.set_alpha( 0 )
+            ancious.set_volume( 0 )
     except:
         raise Exception( "Error occured" )
