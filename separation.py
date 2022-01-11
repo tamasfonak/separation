@@ -22,7 +22,7 @@ def rssi_scanner( address ):
                 print( rssi_average )
             #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
-_thread.start_new_thread( rssi_scanner, ('74:38:b7:cf:eb:f6', ) ) 
+_thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) ) 
 
 
 while True:
