@@ -20,7 +20,7 @@ def rssi_scanner( address ):
                     rssi_average_list.pop( 0 )
                 rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
                 print( rssi_average )
-            #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
+            print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
 _thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) ) 
 
