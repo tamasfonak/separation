@@ -29,7 +29,7 @@ while True:
     try:
         #device_is_close = rssi_average > -3
         #device_is_far = rssi_average < -6
-        if rssi_average < -60:
+        if rssi_average < -50:
             print( 'ancious' )
             ancious.set_alpha( 255 )
             ancious.set_volume( 1 )
