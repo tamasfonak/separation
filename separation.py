@@ -28,11 +28,12 @@ while True:
         #device_is_close = rssi_average > -3
         #device_is_far = rssi_average < -6
         if rssi_average < -6:
-            ancious.set_alpha( 255 )
-            ancious.set_volume( 100 )
+            #ancious.set_alpha( 255 )
+            #ancious.set_volume( 100 )
+            pass
         if rssi_average > -3:
-            ancious.set_alpha( 255 )
-            ancious.set_volume( 100 )
-            
+            #ancious.set_alpha( 255 )
+            #ancious.set_volume( 100 )
+            pass
     except:
         raise Exception( "Error occured" )
