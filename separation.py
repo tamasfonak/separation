@@ -27,11 +27,11 @@ _thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) )
 
 while True:
     try:
-        if (abs(rssi_average) > 50 ):
+        if (abs(rssi_average) > 50.0 ):
             print( 'ancious' )
             ancious.set_alpha( 255 )
             ancious.set_volume( 1 )
-        if (abs(rssi_average) < 40 ):
+        if (abs(rssi_average) < 40.0 ):
             print( 'calm' )
             ancious.set_alpha( 0 )
             ancious.set_volume( 0 )
