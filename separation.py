@@ -10,7 +10,7 @@ ancious.set_volume( 0 )
 
 rssi_average = 1
 rssi_average_list = []
-def rssi_scanner( address )
+def rssi_scanner( address ):
      try:
         ble_list = Scanner().scan( 10.0 ) #10.0 sec scanning 
         for dev in ble_list:
