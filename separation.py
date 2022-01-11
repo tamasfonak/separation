@@ -11,14 +11,15 @@ import _thread
 rssi_average = 1
 rssi_average_list = []
 def rssi_scanner( address ):
-    ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
-    for dev in ble_list:
-        if dev.addr == address:
-            rssi_average_list.append( dev.rssi )
-            if len( rssi_average_list ) > 10:
-                rssi_average_list.pop( 0 )
-            rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
-        print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
+    while True:
+        ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
+        for dev in ble_list:
+            if dev.addr == address:
+                rssi_average_list.append( dev.rssi )
+                if len( rssi_average_list ) > 10:
+                    rssi_average_list.pop( 0 )
+                rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
+            print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
 _thread.start_new_thread( rssi_scanner, ('B8:27:EB:06:DF:94', ) ) 
 
