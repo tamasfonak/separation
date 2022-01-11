@@ -1,6 +1,5 @@
 from omxplayer.player import OMXPlayer
 from bluepy.btle import Scanner
-from bt_proximity import BluetoothRSSI
 from pathlib import Path
 import _thread 
 
@@ -12,14 +11,15 @@ import _thread
 rssi_average = 1
 rssi_average_list = []
 def rssi_scanner( address ):
-    btrssi = BluetoothRSSI( addr=address )
     while True:
-            rssi_average_list.append(  btrssi.get_rssi() )
-            if len( rssi_average_list ) > 10:
-                rssi_average_list.pop( 0 )
-            rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
-            print( rssi_average )
-            sleep( 1 )
+        ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
+        for dev in ble_list:
+            if dev.addr == address:
+                rssi_average_list.append( dev.rssi )
+                if len( rssi_average_list ) > 10:
+                    rssi_average_list.pop( 0 )
+                rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
+                print( rssi_average )
             #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
 _thread.start_new_thread( rssi_scanner, ('74:38:b7:cf:eb:f6', ) ) 
