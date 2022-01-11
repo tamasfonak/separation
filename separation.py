@@ -11,6 +11,7 @@ ancious.set_volume( 0 )
 rssi_average = 1
 rssi_average_list = []
 def rssi_scanner( address ):
+    global rssi_average
     while True:
         ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
         for dev in ble_list:
