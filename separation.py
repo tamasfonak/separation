@@ -19,7 +19,7 @@ def rssi_scanner( address ):
                 if len( rssi_average_list ) > 10:
                     rssi_average_list.pop( 0 )
                 rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
-                print( rssi_average )
+                print( abs(rssi_average) )
             #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
 _thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) ) 
@@ -27,13 +27,11 @@ _thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) )
 
 while True:
     try:
-        #device_is_close = rssi_average > -3
-        #device_is_far = rssi_average < -6
-        if (float(rssi_average) < -50):
+        if (abs(rssi_average) > 50 ):
             print( 'ancious' )
             ancious.set_alpha( 255 )
             ancious.set_volume( 1 )
-        if (float(rssi_average) > -40):
+        if (abs(rssi_average) < 40 ):
             print( 'calm' )
             ancious.set_alpha( 0 )
             ancious.set_volume( 0 )
