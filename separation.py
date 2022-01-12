@@ -25,13 +25,19 @@ def rssi_scanner( address ):
 
 _thread.start_new_thread( rssi_scanner, ('7e:17:54:25:08:54', ) ) 
 
+alpha = 0;
+
 while True:
     try:
         if ( rssi_average < -50 ):
-            ancious.set_alpha( 255 )
-            ancious.set_volume( 1 )
+            if alpha < 255:
+                alpha += 1
+            ancious.set_alpha( alpha )
+            ancious.set_volume( alpha / 25 )
         if ( rssi_average > -40 ):
-            ancious.set_alpha( 0 )
-            ancious.set_volume( 0 )
+            if alpha > 0:
+                alpha += 1
+            ancious.set_alpha( alpha )
+            ancious.set_volume( alpha / 25 )
     except:
         raise Exception( "Error occured" )
