@@ -2,7 +2,7 @@ import cv2
 import numpy as np
    
 # Create a VideoCapture object and read from input file
-cap = cv2.VideoCapture( 'tree.mp4' )
+cap = cv2.VideoCapture( 'Hologram_Planet_by_nuva.mov' )
    
 # Check if camera opened successfully
 if ( cap.isOpened() == False ): 
