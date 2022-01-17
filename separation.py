@@ -25,7 +25,7 @@ def rssi_scanner( address ):
                 print( abs(rssi_average) )
             print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
-_thread.start_new_thread( rssi_scanner, ('53:1A:42:67:24:56', ) ) 
+_thread.start_new_thread( rssi_scanner, ('53:1a:42:67:24:56', ) ) 
 
 
 while True:
