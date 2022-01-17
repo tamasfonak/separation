@@ -6,7 +6,7 @@ import _thread
 
 ancious = OMXPlayer( Path( '/home/pi/separation_video/baba_02.mp4' ), args = [ '--no-osd', '--loop', '--layer', '1', '--win', '0,0,1920,1080', '--alpha', '0' ], dbus_name = 'org.mpris.MediaPlayer2.ancious' )
 ancious.set_volume( 0 )
-calm = OMXPlayer( Path( '/home/pi/separation_video/baba_01.mp4' ), args = [ '--no-osd', '--loop', '--layer', '0', '--win', '0,0,1920,1080', '--alpha', '0' ], dbus_name = 'org.mpris.MediaPlayer2.calm' )
+calm = OMXPlayer( Path( '/home/pi/separation_video/baba_01.mp4' ), args = [ '--no-osd', '--loop', '--layer', '0', '--win', '0,0,1920,1080', '--alpha', '1' ], dbus_name = 'org.mpris.MediaPlayer2.calm' )
 calm.set_volume( 0 )
 
 
@@ -33,10 +33,8 @@ while True:
         if (abs(rssi_average) > 50.0 ):
             ancious.set_alpha( 255 )
             ancious.set_volume( 1 )
-            calm.set_alpha( 0 )
         if (abs(rssi_average) < 40.0 ):
             ancious.set_alpha( 0 )
-            calm.set_alpha( 255 )
             ancious.set_volume( 0 )
     except:
         raise Exception( "Error occured" )
