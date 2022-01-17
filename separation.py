@@ -30,18 +30,12 @@ alpha = 0
 while True:
     try:
         if ( rssi_average < -50.0 ):
-            if alpha < 255:
-                alpha += 25
-            if alpha > 255:
-                alpha = 255
+            alpha = min( aplha + 25, 255 )
             ancious.set_alpha( alpha )
-            ancious.set_volume( 1 )
+            ancious.set_volume( alpha / 25 )
         if ( rssi_average > -40.0 ):
-            if alpha > 0:
-                alpha -= 25
-            if alpha < 0:
-                alpha = 0
+            alpha = max( aplha - 25, 0 )
             ancious.set_alpha( alpha )
-            ancious.set_volume( 0 )
+            ancious.set_volume( alpha / 25 )
     except:
         raise Exception( "Error occured" )
