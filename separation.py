@@ -27,14 +27,19 @@ def rssi_scanner( address ):
 _thread.start_new_thread( rssi_scanner, ('53:1a:42:67:24:56', ) ) 
 
 alpha = 0
+alphaSpeed = 25 
 while True:
     try:
         if ( rssi_average < -50.0 ):
-            alpha = min( aplha + 25, 255 )
+            if alpha == 255:
+                continue
+            alpha = min( aplha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
             ancious.set_volume( alpha / 25 )
         if ( rssi_average > -40.0 ):
-            alpha = max( aplha - 25, 0 )
+            if alpha == 0:
+                continue
+            alpha = max( aplha - alphaSpeed, 0 )
             ancious.set_alpha( alpha )
             ancious.set_volume( alpha / 25 )
     except:
