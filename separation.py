@@ -21,7 +21,7 @@ def rssi_scanner( address ):
                 if len( rssi_average_list ) > 5:
                     rssi_average_list.pop( 0 )
                 rssi_average = ( float( sum( rssi_average_list ) ) / len( rssi_average_list ) )
-                print( abs(rssi_average) )
+                print( rssi_average )
             #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) )
 
 _thread.start_new_thread( rssi_scanner, ('53:1a:42:67:24:56', ) ) 
