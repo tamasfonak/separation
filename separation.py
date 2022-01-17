@@ -31,12 +31,12 @@ while True:
     try:
         if ( rssi_average < -50.0 ):
             if alpha < 255:
-                alpha += 1
+                alpha += 25
             ancious.set_alpha( alpha )
             ancious.set_volume( 1 )
         if ( rssi_average > -40.0 ):
             if alpha > 0:
-                alpha -=1
+                alpha -= 25
             ancious.set_alpha( alpha )
             ancious.set_volume( 0 )
     except:
