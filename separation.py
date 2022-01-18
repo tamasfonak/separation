@@ -36,7 +36,7 @@ while True:
                 calm.pause()
                 calm.set_position( 0 )
                 continue
-            alpha = min( aplha + alphaSpeed, 255 )
+            alpha = min( alpha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
             ancious.set_volume( alpha / 25 )
         if ( rssi_average > -40.0 ):
