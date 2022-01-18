@@ -29,7 +29,7 @@ def rssi_scanner( address ):
 
 _thread.start_new_thread( rssi_scanner, ( '5e:23:a6:da:33:75', ) )
 
-alpha = float( 0 )
+alpha = 0
 alphaSpeed = 8 # 1 - 255 
 while True:
     try:
