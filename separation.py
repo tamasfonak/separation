@@ -12,7 +12,7 @@ calm.set_volume( 0 )
 ancious = OMXPlayer( Path( '/home/pi/separation_video/baba_02.mp4' ), args = [ '--no-osd', '--loop', '--layer', '1', '--win', '0,0,1920,1080', '--alpha', '0' ], dbus_name = 'org.mpris.MediaPlayer2.ancious' )
 ancious.set_volume( 0 )
 
-rssi_average = 1
+rssi_average = 0
 rssi_average_list = []
 def rssi_scanner( address ):
     global rssi_average
@@ -41,7 +41,7 @@ while True:
                 continue
             alpha = min( alpha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
-            ancious.set_volume( alpha / 25 )
+            ancious.set_volume( 10 )
         if ( rssi_average > -40.0 ):
             calm.play()
             if alpha == 0:
@@ -50,6 +50,6 @@ while True:
                 continue
             alpha = max( alpha - alphaSpeed, 0 )
             ancious.set_alpha( alpha )
-            ancious.set_volume( alpha / 25 )
+            ancious.set_volume( 0 )
     except:
         raise Exception( "Error occured" )
