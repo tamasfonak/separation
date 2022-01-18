@@ -30,7 +30,7 @@ def rssi_scanner( address ):
 _thread.start_new_thread( rssi_scanner, ( '5e:23:a6:da:33:75', ) )
 
 alpha = float( 0 )
-alphaSpeed = 25 # 1 - 255 
+alphaSpeed = 2 # 1 - 255 
 while True:
     try:
         if rssi_average < -50.0:
