@@ -43,7 +43,7 @@ while True:
                 continue
             alpha = min( alpha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
-            ancious.set_volume( 10 )
+            ancious.set_volume( 1 )
         if rssi_average > -40.0:
             if not calm.is_playing():
                 calm.play()
