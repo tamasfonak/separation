@@ -8,8 +8,6 @@ calm = OMXPlayer( Path( '/home/pi/separation_video/baba_01.mp4' ), args = [ '--n
 calm.set_volume( 0 )
 ancious = OMXPlayer( Path( '/home/pi/separation_video/baba_02.mp4' ), args = [ '--no-osd', '--loop', '--layer', '1', '--win', '0,0,1920,1080', '--alpha', '0' ], dbus_name = 'org.mpris.MediaPlayer2.ancious' )
 ancious.set_volume( 0 )
-noise = OMXPlayer( Path( '/home/pi/separation_video/baba_02.mp4' ), args = [ '--no-osd', '--loop', '--layer', '2', '--win', '0,0,1920,1080', '--alpha', '0' ], dbus_name = 'org.mpris.MediaPlayer2.noise' )
-noise.set_volume( 0 )
 
 rssi_average = 1
 rssi_average_list = []
@@ -33,16 +31,12 @@ alphaSpeed = 25 # 1 - 255
 while True:
     try:
         if ( rssi_average < -50.0 ):
-            noise.set_alpha( 0 )
             if alpha == 255:
                 continue
             alpha = min( aplha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
             ancious.set_volume( alpha / 25 )
-        if ( rssi_average < -40 and rssi_average > -50 ):
-            noise.set_alpha( 255 )
         if ( rssi_average > -40.0 ):
-            noise.set_alpha( 0 )
             if alpha == 0:
                 continue
             alpha = max( aplha - alphaSpeed, 0 )
