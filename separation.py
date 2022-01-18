@@ -33,8 +33,9 @@ alpha = float( 0 )
 alphaSpeed = 25 # 1 - 255 
 while True:
     try:
-        if ( rssi_average < -50.0 ):
-            ancious.play()
+        if rssi_average < -50.0:
+            if not ancious.is_playing():
+                ancious.play()
             if alpha == 255:
                 calm.pause()
                 calm.set_position( 0 )
@@ -42,7 +43,8 @@ while True:
             alpha = min( alpha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
             ancious.set_volume( 10 )
-        if ( rssi_average > -40.0 ):
+        if rssi_average > -40.0:
+            if not calm.is_playing:
             calm.play()
             if alpha == 0:
                 ancious.pause()
