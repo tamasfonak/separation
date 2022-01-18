@@ -45,7 +45,7 @@ while True:
                 ancious.pause()
                 ancious.set_position( 0 )
                 continue
-            alpha = max( aplha - alphaSpeed, 0 )
+            alpha = max( alpha - alphaSpeed, 0 )
             ancious.set_alpha( alpha )
             ancious.set_volume( alpha / 25 )
     except:
