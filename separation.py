@@ -27,7 +27,7 @@ def rssi_scanner( address ):
                 print( rssi_average )
             #print( "rssi: {} ; mac: {}".format( dev.rssi, dev.addr ) ) # print all scannned MAC( Media Access Control ) address, the iOS devices always change the MAC address - randomly -  when the BLE turn on. 
 
-_thread.start_new_thread( rssi_scanner, ( '63:4e:0d:ec:1c:b8', ) )
+_thread.start_new_thread( rssi_scanner, ( '5e:23:a6:da:33:75', ) )
 
 alpha = float( 0 )
 alphaSpeed = 25 # 1 - 255 
