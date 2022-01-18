@@ -5,7 +5,7 @@ import time
 import _thread
 import subprocess
 
-subprocess.call("hciconfig hci0 down && hciconfig hci0 up", shell=True)
+subprocess.call( 'sudo hciconfig hci0 down && sudo hciconfig hci0 up', shell=True)
 
 calm = OMXPlayer( Path( '/home/pi/separation_video/baba_01.mp4' ), args = [ '--no-osd', '--loop', '--layer', '0', '--win', '0,0,1920,1080', '--alpha', '255' ], dbus_name = 'org.mpris.MediaPlayer2.calm' )
 calm.set_volume( 0 )
