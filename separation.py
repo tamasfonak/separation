@@ -45,7 +45,7 @@ while True:
             ancious.set_alpha( alpha )
             ancious.set_volume( 10 )
         if rssi_average > -40.0:
-            if not calm.is_playing:
+            if not calm.is_playing():
                 calm.play()
             if alpha == 0:
                 if ancious.is_playing():
