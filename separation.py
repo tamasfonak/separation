@@ -3,6 +3,9 @@ from bluepy.btle import Scanner
 from pathlib import Path
 import time
 import _thread
+import subprocess
+
+subprocess.call("hciconfig hci0 down && hciconfig hci0 up", shell=True)
 
 calm = OMXPlayer( Path( '/home/pi/separation_video/baba_01.mp4' ), args = [ '--no-osd', '--loop', '--layer', '0', '--win', '0,0,1920,1080', '--alpha', '255' ], dbus_name = 'org.mpris.MediaPlayer2.calm' )
 calm.set_volume( 0 )
@@ -14,7 +17,7 @@ rssi_average_list = []
 def rssi_scanner( address ):
     global rssi_average
     while True:
-        ble_list = Scanner().scan( 1.0, passive = True ) #10.0 sec scanning 
+        ble_list = Scanner().scan( 1.0 ) #10.0 sec scanning 
         for dev in ble_list:
             if dev.addr == address:
                 rssi_average_list.append( dev.rssi )
