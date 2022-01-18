@@ -37,8 +37,9 @@ while True:
             if not ancious.is_playing():
                 ancious.play()
             if alpha == 255:
-                calm.pause()
-                calm.set_position( 0 )
+                if calm.is_playing():
+                    calm.pause()
+                    calm.set_position( 0 )
                 continue
             alpha = min( alpha + alphaSpeed, 255 )
             ancious.set_alpha( alpha )
@@ -47,8 +48,9 @@ while True:
             if not calm.is_playing:
             calm.play()
             if alpha == 0:
-                ancious.pause()
-                ancious.set_position( 0 )
+                if ancious.is_playing():
+                    ancious.pause()
+                    ancious.set_position( 0 )
                 continue
             alpha = max( alpha - alphaSpeed, 0 )
             ancious.set_alpha( alpha )
