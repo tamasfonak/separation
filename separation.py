@@ -26,7 +26,7 @@ def rssi_scanner( address ):
 
 _thread.start_new_thread( rssi_scanner, ( '63:4e:0d:ec:1c:b8', ) )
 
-alpha = 0
+alpha = float( 0 )
 alphaSpeed = 25 # 1 - 255 
 while True:
     try:
